@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CV.DAL\CV.DAL.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 

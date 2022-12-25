@@ -54,10 +54,8 @@ namespace CV.DAL.Repository
                 {
                    
                         children.ToList().ForEach(x => dbSet.Include(x).Load());
-                        return await dbSet.Where(predicate).ToListAsync();
-                    //return await dbSet.childre.for.Where(predicate).ToListAsync();
-                }
-                //return await dbSet.Where(predicate).ToListAsync();
+                        return await dbSet.Where(predicate).ToListAsync();          
+                }          
             }
             else {
                 if (children == null)
@@ -72,12 +70,6 @@ namespace CV.DAL.Repository
             }
            
         }
-
-        public Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<T> GetById(int Id)
         {
             return await dbSet.FindAsync(Id);

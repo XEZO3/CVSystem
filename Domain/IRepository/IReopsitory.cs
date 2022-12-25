@@ -13,7 +13,7 @@ namespace Domain.IRepository
          void Delete(T entity);
          T Update(T entity);
 
-         Task<IEnumerable<T>> GetAll(Expression<Func<T,bool>> predicate = null);
+         //Task<IEnumerable<T>> GetAll(Expression<Func<T,bool>> predicate = null);
         Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null, List<Expression<Func<T, object>>> children = null);
         Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null);
 

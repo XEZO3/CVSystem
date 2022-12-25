@@ -23,6 +23,7 @@ namespace CV.DAL.Repository
 
         public Users GetByEmail(string email)
         {
+           
            var user = _dbSet.FirstOrDefault(x => x.Email == email);
             return user;
         }
