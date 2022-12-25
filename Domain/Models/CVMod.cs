@@ -12,9 +12,9 @@ namespace Domain.Models
         public string Name { get; set; }
         [ForeignKey("Personal")]
         public int PersonalId { get; set; }
-        public Personal personal { get; set; }
+        public Personal? personal { get; set; }
         [ForeignKey("Exp")]
         public int ExpId { get; set; }
-        public Exp exp { get; set; }
+        public Exp? exp { get; set; }
     }
 }
