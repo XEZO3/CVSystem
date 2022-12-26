@@ -17,7 +17,7 @@ namespace CV.DAL.Data
         {
             //DESKTOP-JD76U9C
             //LAPTOP-BFFJ9SQ9
-            builder.UseSqlServer("Server=DESKTOP-JD76U9C;Database=CVSystem;Trusted_Connection=True;Trust Server Certificate=true;");
+            builder.UseSqlServer("Server=LAPTOP-NNUMAB6J;Database=CVSystem;Trusted_Connection=True;Trust Server Certificate=true;");
         }
         DbSet<Exp> experiances { get; set; }
         DbSet<Users> Users { get; set; }
