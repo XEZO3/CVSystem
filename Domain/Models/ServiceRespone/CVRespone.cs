@@ -8,6 +8,7 @@ namespace Domain.Models.ServiceRespone
 {
     public class CVRespone
     {
+        public int Id { get; set; }
         public string Name { get; set; }      
         public int PersonalId { get; set; }       
         public int ExpId { get; set; }

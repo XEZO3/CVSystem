@@ -16,8 +16,8 @@ namespace CV.DAL.Data
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             //DESKTOP-JD76U9C
-            //LAPTOP-BFFJ9SQ9
-            builder.UseSqlServer("Server=LAPTOP-NNUMAB6J;Database=CVSystem;Trusted_Connection=True;Trust Server Certificate=true;");
+            //LAPTOP-NNUMAB6J
+            builder.UseSqlServer("Server=DESKTOP-JD76U9C;Database=CVSystem;Trusted_Connection=True;Trust Server Certificate=true;");
         }
         DbSet<Exp> experiances { get; set; }
         DbSet<Users> Users { get; set; }

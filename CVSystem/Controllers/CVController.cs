@@ -24,14 +24,15 @@ namespace CVSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery]CvFilter filter = null)
         {
-            //if (filter != null) {
-            //    return Ok(await _CVService.GetAll(x=>(x.personal.FullName.Contains(filter.Name) || x.personal.FullName.IsNullOrEmpty)&& (x.personal.FullName.Contains(filter.FullName) || x.personal.FullName.IsNullOrEmpty)));
-            //}
-            return Ok(await _CVService.GetAll(x=>x.Name =="hh"|| x.Name=="hho"));
+            return Ok(await _CVService.GetAll(x=> (x.personal.FullName.Contains(filter.FullName) || filter.FullName == null)));
         }
         [HttpGet("{Id}")]
         public IActionResult GetById(int Id) {
             return Ok(_CVService.GetById(Id));
+        }
+        [HttpDelete]
+        public IActionResult Delete([FromBody]CVMod cv) {
+            return Ok(_CVService.Delete(cv));
         }
     }
 }
