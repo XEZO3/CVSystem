@@ -15,9 +15,9 @@ namespace Domain.IRepository
 
          //Task<IEnumerable<T>> GetAll(Expression<Func<T,bool>> predicate = null);
         Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null, List<Expression<Func<T, object>>> children = null);
-        Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null);
+        Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null, List<Expression<Func<T, object>>> children = null);
 
-         Task<T> GetById(int Id);
+         Task<T> GetById(int Id, List<Expression<Func<T, object>>> children = null);
 
 
     }

@@ -32,15 +32,35 @@ namespace CV.DAL.Repository
             dbSet.Remove(entity);
         }
 
-        public Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null, Expression<Func<T, object>>[] children = null)
+        public async Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null, List<Expression<Func<T, object>>> children = null)
         {
-            throw new NotImplementedException();
+            if (predicate != null)
+            {
+                if (children == null)
+                {
+                    return await dbSet.FirstOrDefaultAsync(predicate);
+                }
+                else
+                {
+
+                    children.ToList().ForEach(x => dbSet.Include(x).Load());
+                    return await dbSet.FirstOrDefaultAsync(predicate);
+                }
+            }
+            else
+            {
+                if (children == null)
+                {
+                    return await dbSet.FirstOrDefaultAsync();
+                }
+                else
+                {
+                    children.ToList().ForEach(x => dbSet.Include(x).Load());
+                    return await dbSet.FirstOrDefaultAsync();
+                }
+            }
         }
 
-        public Task<T> FirstOrDefult(Expression<Func<T, bool>> predicate = null)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null, List<Expression<Func<T, object>>> children = null)
         {
@@ -70,8 +90,12 @@ namespace CV.DAL.Repository
             }
            
         }
-        public async Task<T> GetById(int Id)
+        public async Task<T> GetById(int Id, List<Expression<Func<T, object>>> children = null)
         {
+            if (children != null) {
+
+                children.ToList().ForEach(x => dbSet.Include(x).Load());
+            }
             return await dbSet.FindAsync(Id);
         }
 

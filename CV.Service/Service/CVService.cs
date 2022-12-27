@@ -63,8 +63,7 @@ namespace CV.Service.Service
             ServiceRespone<IEnumerable<CVRespone>> respone = new ServiceRespone<IEnumerable<CVRespone>>();
             var CVs = await _CVRepository.GetAll(predicate, new List<Expression<Func<CVMod, Object>>> {
                         { m => m.exp},
-                        { m => m.personal} });
-            
+                        { m => m.personal} });            
             respone.returnCode = Convert.ToString(codes.ok);
             respone.result = _mapper.Map<List<CVRespone>>(CVs);
             
@@ -74,7 +73,9 @@ namespace CV.Service.Service
         public async Task<ServiceRespone<CVRespone>> GetById(int Id)
         {
             ServiceRespone<CVRespone> respone = new ServiceRespone<CVRespone>();
-            CVMod CV =  await _CVRepository.GetById(Id);
+            CVMod CV =  await _CVRepository.GetById(Id, new List<Expression<Func<CVMod, Object>>> {
+                        { m => m.exp},
+                        { m => m.personal} });
             respone.returnCode = Convert.ToString(codes.ok);
             respone.result = _mapper.Map<CVRespone>(CV);
             return respone;
