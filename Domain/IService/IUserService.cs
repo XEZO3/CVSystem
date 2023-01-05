@@ -11,7 +11,8 @@ namespace Domain.IService
 {
     public interface IUserService:IService<Users,UsersRespone>
     {
-        Task<ServiceRespone<UsersRespone>> Login(LoginDto login);
+        Task<ServiceRespone<LoginRespone>> Login(LoginDto login);
         Task<ServiceRespone<UsersRespone>> Register(RegisterDto register);
+        string GeneratePassword(string password, byte[] salt);
     }
 }

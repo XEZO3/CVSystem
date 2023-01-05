@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Models;
+using Domain.Models.Dto;
 using Domain.Models.ServiceRespone;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Domain.common
             CreateMap<Exp, ExpRespone>();
             CreateMap<Personal, PersonalRespone>();
             CreateMap<Users, UsersRespone>();
+            CreateMap<RegisterDto, Users>();
             CreateMap<CVMod, CVRespone>();
 
         }

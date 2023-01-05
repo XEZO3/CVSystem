@@ -16,6 +16,9 @@ namespace CVSystem.Common.Extention
             builder.Services.AddScoped<IPersonalService, PersonalService>();
             builder.Services.AddScoped<ICVRepository, CVRepository>();
             builder.Services.AddScoped<ICVService, CVService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
             return builder.Services;
         }
     }
